@@ -5,6 +5,7 @@ from   tensorflow.keras.models import Sequential
 from   tensorflow.keras.layers import LSTM, Dense, Bidirectional, Dropout
 import numpy as np
 
+#Файл loto.txt содержит последние 100 результатов тиражей 6 из 45 (это файл состоит из строк по 6 чисел каждого тиража)
 a = np.loadtxt('C:\\Temp\\loto.txt',dtype ='int')
 
 df=pd.DataFrame(a,columns=list('ABCDEF'))
@@ -43,6 +44,7 @@ model.compile(loss='mse',optimizer='rmsprop', metrics=['accuracy'])
 
 model.fit(train, label, batch_size=100, epochs=300)
 
+#Файл loto.txt содержит последние 7 результатов тиражей 6 из 45 (это файл состоит из строк по 6 чисел каждого тиража, всего 7 строк)
 to_predict = np.loadtxt('C:\\Temp\\loto1.txt',dtype ='int')
 
 #to_predict=np.array([[3,15,38,45,48,53],[1,8,12,16,18,42],[9,21,23,30,35,38],[2,8,36,51,52,54],[6,8,9,36,39,57]])
